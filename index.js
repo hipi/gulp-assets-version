@@ -41,7 +41,8 @@ module.exports = function (options) {
                     return str;
                 }
                 var version = options.version || VERSION;
-                src = src + "?v=" + version
+                var preStr = options.preStr || 'v';
+                src = src + "?" + preStr + "=" + version
                 return tag + '"' + src + '"';
             });
         }
