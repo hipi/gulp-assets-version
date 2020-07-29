@@ -2,7 +2,7 @@
 
 var crypto = require('crypto');
 
-const PluginError = require("plugin-error");
+var PluginError = require("plugin-error");
 var through = require('through2');
 
 var PLUGIN_NAME = 'gulp-asset-rev';
@@ -17,8 +17,8 @@ var ASSET_REG = {
 var createHash = function (file, len) {
     return crypto.randomBytes(5).toString('hex')
 };
-
 module.exports = function (options) {
+    var VERSION = createHash()
     return through.obj(function (file, enc, cb) {
         options = options || {};
         if (file.isNull()) {
@@ -40,7 +40,7 @@ module.exports = function (options) {
                 if (/^https?:\/\//.test(src)) {
                     return str;
                 }
-                var version = options.version || createHash();
+                var version = options.version || VERSION;
                 src = src + "?v=" + version
                 return tag + '"' + src + '"';
             });
