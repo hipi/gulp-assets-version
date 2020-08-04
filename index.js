@@ -32,14 +32,21 @@ module.exports = function (options) {
         var content = file.contents.toString();
         for (var type in ASSET_REG) {
             content = content.replace(ASSET_REG[type], function (str, tag, src) {
-                src = src.replace(/(^['"]|['"]$)/g, '');
+                src = src.replace(/(^['"]|['"]$)/g, '');               
                 if (!/\.[^\.]+$/.test(src)) {
                     return str;
                 }
+
                 // remote resource
                 if (/^https?:\/\//.test(src)) {
                     return str;
                 }
+
+                // exclude resource
+                if (options.exclude && options.exclude.test(src)) {
+                    return str;
+                }
+
                 var version = options.version || VERSION;
                 var preStr = options.preStr || 'v';
                 src = src + "?" + preStr + "=" + version

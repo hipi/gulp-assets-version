@@ -1,6 +1,6 @@
 {
   "name": "gulp-assets-version",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "replace asset's filename by adding file hash",
   "license": "MIT",
   "repository": {

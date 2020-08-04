@@ -29,6 +29,10 @@ Type: `String` default: "v"
 
 Type: `String` default: random
 
+### exclude: 
+
+Type: `reg` default: ''
+
 ## Example
 
 ```js
