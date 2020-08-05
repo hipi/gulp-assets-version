@@ -5,7 +5,7 @@ var crypto = require('crypto');
 var PluginError = require("plugin-error");
 var through = require('through2');
 
-var PLUGIN_NAME = 'gulp-asset-rev';
+var PLUGIN_NAME = 'gulp-assets-version';
 
 var ASSET_REG = {
     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
