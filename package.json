@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/cyea/gulp-assets-version"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "author": {
     "name": "cyea",
     "email": "yuyehack@gmail.com"
